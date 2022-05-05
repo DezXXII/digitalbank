@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/styles.css">
+    <title>Transactions</title>
+</head>
+<body>
+
+    <h1>Your Transactions</h1>
+
+    <% if (login) { %>
+        <% results.forEach((transaction) => { %>
+            <% if(transaction.senderid == userid) { %>
+                <div>
+                    <p>Transferiste a <%= transaction.firstname %> <%= transaction.lastname %> por un valor de $ <%= transaction.quantityamount %></p>
+                </div>
+            <% } else { %>
+                <div>
+                    <p><%= transaction.firstname %> <%= transaction.lastname %> te transfirió $ <%= transaction.quantityamount %></p>
+                </div>
+            <% } %>
+
+        <% }) %>
+    <% } %>
+
+</body>
+</html>
