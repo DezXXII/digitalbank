@@ -1,0 +1,121 @@
+/** ----------- Globals ----------- **/
+
+html {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/** ----------- Header ----------- **/
+
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #002966;
+    color: white;
+    height: 70px;
+    text-align: center;
+    align-items: center;
+}
+
+.header-container h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: .3s ease-in-out;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+/** ----------- Registration Form ----------- **/
+
+.register-form-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form input {
+    width: 85%;
+    padding: 20px 30px 20px 10px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    font-weight: bold;
+}
+
+form input:focus {
+    outline: 2px solid orange;
+}
+
+.submitBtn {
+    border-radius: 50px;
+    margin: 0 20px;
+    font-size: 25px;
+    background-color: #002966;
+    color: white;
+    width: auto;
+}
+
+.submitBtn:hover {
+    cursor: pointer;
+}
+
+/** ----------- Filler ----------- **/
+
+.filler {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.filler a {
+    color: #002966;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+/** ----------- Waves ----------- **/
+
+.waves {
+    margin-top: 20px;
+}
+
+/** ----------- Form Media Queries ----------- **/
+
+@media (min-width: 320px) {
+    form {
+        margin: 0 auto;
+        width: 500px;
+    }
+
+    .submitBtn {
+        margin: 0 auto;
+        width: 300px;
+    }
+}

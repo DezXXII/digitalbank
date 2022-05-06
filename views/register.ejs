@@ -4,39 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/register.css">
     <title>Register</title>
-    <link rel="stylesheet" href="resources/css/styles.css">
 </head>
 <body>
+
+    <header class="header-container">
+        <h1>DigitalBank</h1>
+        <a href="/login">Login</a>
+    </header>
     
-    <div class="register-form">
-        <h1>Form Registration</h1>
+    <section class="register-form-container">
+        <h2>Create your account</h2>
         <form action="register" method="POST">
             <div>
-                <label for="firstname">First Name</label>
-                <input type="text" name="firstname">
+                <input type="text" name="firstname" placeholder="Firstname" required>
             </div>
-
             <div>
-                <label for="lastname">Last Name</label>
-                <input type="text" name="lastname">
+                <input type="text" name="lastname" placeholder="Lastname" required>
             </div>
-
             <div>
-                <label for="email">Email</label>
-                <input type="text" name="email" required>
+                <input type="text" name="email" placeholder="Email" required>
             </div>
-
             <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
+                <input type="password" name="password" placeholder="Password" required>
             </div>
-
-            <div style="display: inline;">
-                <a href="/">Cancel</a>
-                <input type="submit" value="Save">
-            </div>
+            <input class="submitBtn" type="submit" value="Create">
         </form>
+    </section>
+
+    <div class="filler">
+        <a href="/">Need help?</a>
+    </div>
+
+    <div class="waves">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#002966" fill-opacity="1" d="M0,32L34.3,48C68.6,64,137,96,206,122.7C274.3,149,343,171,411,186.7C480,203,549,213,617,202.7C685.7,192,754,160,823,133.3C891.4,107,960,85,1029,80C1097.1,75,1166,85,1234,101.3C1302.9,117,1371,139,1406,149.3L1440,160L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>    
     </div>
 
 </body>
