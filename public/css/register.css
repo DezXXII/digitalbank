@@ -10,6 +10,11 @@ box-sizing: inherit;
 
 body {
     font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+
+img {
+    min-width: 100%;
 }
 
 /** ----------- Header ----------- **/
@@ -98,12 +103,6 @@ form input:focus {
     color: #002966;
     text-decoration: none;
     font-size: 25px;
-}
-
-/** ----------- Waves ----------- **/
-
-.waves {
-    margin-top: 20px;
 }
 
 /** ----------- Form Media Queries ----------- **/

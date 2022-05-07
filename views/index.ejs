@@ -4,17 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="resources/css/index.css">
     <title>Digital Bank</title>
 </head>
 <body>
-    <h1>Main Menu</h1>
+    <header class="header-container">
+        <h1>DigitalBank</h1>
+        <a href="/login">Logout</a>
+    </header>
 
-        <h1><%= firstname %> <%= lastname %></h1>
-        <h1>$ <%= money %></h1>
-        <a href="logout" class="a-logout">Logout</a>
-        <a href="transfer">Send Money</a>
-        <a href="transactions">Your Transactions</a>
+    <main class="main-container">
+        <div class="user-info-container">
+            <div class="user-name">
+                <h2><%= firstname %></h2>
+                <h2><%= lastname %></h2>
+            </div>
+            <div class="money-container">
+                <h3>Available Money</h3>
+                <h3>$ <%= money %></h3>
+            </div>
+            <a class="sendBtn" href="transfer">Send Money</a>
+        </div>
 
+    </main>
+
+    <section class="transactions-container">
+        <div class="transactions">
+            <% results2.forEach((transaction) => { %>
+                <% if(transaction.senderid == userid) { %>
+                    <div class="sent-transaction">
+                        <img src="../resources/images/sentmoneyicon.svg" alt="received money icon">
+                        <span>You transfered to <%= transaction.firstname %> <%= transaction.lastname %></span>
+                        <p>$<%= transaction.quantityamount %></p>
+                    </div>
+                <% } else { %>
+                    <div class="received-transaction">
+                        <img src="../resources/images/receivedmoneyicon.svg" alt="sent money icon">
+                        <span><%= transaction.firstname %> <%= transaction.lastname %> transferred you</span>
+                        <p>$<%= transaction.quantityamount %></p>
+                    </div>
+                <% } %>
+            <% }) %>
+        </div>
+    </section>
 </body>
 </html>

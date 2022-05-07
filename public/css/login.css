@@ -2,7 +2,7 @@
 
 html {
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 *, *:before, *:after {
 box-sizing: inherit;
@@ -10,6 +10,10 @@ box-sizing: inherit;
 
 body {
     font-family: 'Poppins', sans-serif;
+}
+
+img {
+    min-width: 100%;
 }
 
 /** ----------- Header ----------- **/
@@ -92,12 +96,6 @@ form input:focus {
     color: #002966;
     text-decoration: none;
     font-size: 25px;
-}
-
-/** ----------- Waves ----------- **/
-
-.waves {
-    margin-top: 125px;
 }
 
 /** ----------- Form Media Queries ----------- **/
