@@ -28,38 +28,52 @@
                 <h3 class="hide-money">$ <%= money %></h3>
             </div>
             <a class="logoutBtn" href="logout">Logout</a>
-            <a class="sendBtn" href="transfer">Send Money</a>
+            <a class="sendBtnMobile" href="transfer">Transfer</a>
         </div>
 
     </main>
 
-    <section class="transactions-container">
-        <div class="transactions">
-            <h3 class="transactions-header">Your last movements</h3>
-            <% results2.slice(-10).forEach((transaction) => { %>
-                <% if(transaction.senderid == userid) { %>
-                    <div class="sent-transaction">
-                        <div class="img-info-container">
-                            <img src="../resources/images/sentmoneyicon.svg" alt="received money icon">
-                            <span class="transaction-text-span">You transfered to <span class="transaction-info-span"><%= transaction.receiver_firstname %> <%= transaction.receiver_lastname %></span></span>
-                        </div>
-                        <div class="quantityamount-container">
-                            <p>$<%= transaction.quantityamount %></p>
-                        </div>
-                    </div>
-                <% } else { %>
-                    <div class="received-transaction">
-                        <div class="img-info-container">
-                            <img src="../resources/images/receivedmoneyicon.svg" alt="sent money icon">
-                            <span class="transaction-text-span"><span class="transaction-info-span"><%= transaction.sender_firstname %> <%= transaction.sender_lastname %></span> transferred you</span>
-                        </div>
-                        <div class="quantityamount-container">
-                            <p>$<%= transaction.quantityamount %></p>
-                        </div>
-                    </div>
-                <% } %>
-            <% }) %>
+    <div class="mid-page-wrapper">
+        <div class="info-money-container">
+            <div>
+                <h3>Available Money</h3>
+            </div>
+            <div>
+                <h3>$ <%= money %></h3>
+            </div>
+            <div>
+                <a class="sendBtnDesktop" href="transfer">Transfer</a>
+            </div>
         </div>
-    </section>
+
+
+            <div class="transactions">
+                <h3 class="transactions-header">Your last movements</h3>
+                <% results2.slice(-10).forEach((transaction) => { %>
+                    <% if(transaction.senderid == userid) { %>
+                        <div class="sent-transaction">
+                            <div class="img-info-container">
+                                <img src="../resources/images/sentmoneyicon.svg" alt="received money icon">
+                                <span class="transaction-text-span">You transfered to <span class="transaction-info-span"><%= transaction.receiver_firstname %> <%= transaction.receiver_lastname %></span></span>
+                            </div>
+                            <div class="quantityamount-container">
+                                <p>- $<%= transaction.quantityamount %></p>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div class="received-transaction">
+                            <div class="img-info-container">
+                                <img src="../resources/images/receivedmoneyicon.svg" alt="sent money icon">
+                                <span class="transaction-text-span"><span class="transaction-info-span"><%= transaction.sender_firstname %> <%= transaction.sender_lastname %></span> transferred you</span>
+                            </div>
+                            <div class="quantityamount-container">
+                                <p>$<%= transaction.quantityamount %></p>
+                            </div>
+                        </div>
+                    <% } %>
+                <% }) %>
+            </div>
+
+    </div>
 </body>
 </html>

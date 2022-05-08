@@ -11,6 +11,7 @@ box-sizing: inherit;
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    background-color: rgba(0,0,0,.1);
 }
 
 h1, h2, h3, h4, h5, p {
@@ -66,10 +67,11 @@ img {
     color: white;
     text-align: center;
     position: relative;
-    top: 14%;
+    top: 10%;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 40px;
+    font-size: 20px;
 }
 
 .user-name {
@@ -81,7 +83,7 @@ img {
     gap: 10px;
 }
 
-.sendBtn {
+.sendBtnMobile {
     color: #001433;
     background-color: white;
     width: 150px;
@@ -94,7 +96,7 @@ img {
     font-size: 20px;
 }
 
-.sendBtn:hover {
+.sendBtnMobile:hover {
     cursor: pointer;
     background-color: #002966;
     color: white;
@@ -105,6 +107,10 @@ img {
 }
 
 .logoutBtn {
+    display: none;
+}
+
+.info-money-container {
     display: none;
 }
 
@@ -166,7 +172,47 @@ img {
     /** ---- Main Section ---- **/
 
     .main-container {
-        height: 140px;
+        height: 100px;
+    }
+
+    /** ---- Mid Page Section ---- **/
+
+    .mid-page-wrapper {
+        display: flex;
+        justify-content: space-around;
+        margin: 0px 100px;
+    }
+
+    .info-money-container {
+        background-color: white;
+        margin-top: 20px;
+        border: 1px solid #fff;
+        border-radius: 7.5px;
+        padding: 20px;
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        -webkit-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+        -moz-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+        box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+    }
+
+    .sendBtnDesktop {
+        text-align: center;
+        display: block;
+        color: white;
+        background-color: #001433;
+        width: 150px;
+        margin: 0px auto;
+        padding: 10px 10px;
+        text-decoration: none;
+        border-radius: 20px;
+        font-weight: bolder;
+        transition: .3s ease-in-out;
+        font-size: 20px;
     }
 
     /** ---- User Info Section ---- **/
@@ -178,7 +224,7 @@ img {
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
-        height: 140px;
+        height: 100px;
         font-size: 20px;
     }
 
@@ -205,7 +251,7 @@ img {
         gap: 10px;
     }
     
-    .sendBtn {
+    .sendBtnMobile {
         display: none;
     }
 
@@ -225,20 +271,31 @@ img {
     
     /** ---- Transactions Section ---- **/
 
-    .transactions-container {
-        margin: 20px auto;
-        width: 500px;
+    .transactions {
+        background-color: #FFF;
+        width: 600px;
+        border: 1px solid #fff;
+        border-radius: 7.5px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding: 20px;
+        -webkit-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+        -moz-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+        box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
     }
 
-    .transactions {
-        width: 500px;
+    .transactions-header {
+        border-bottom: 1px solid #d9d9d9;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
     }
 
     .sent-transaction, .received-transaction {
         display: flex;
         justify-content: space-between;
-        width: 500px;
-        max-width: 500px;
+        max-width: 100%;
+        border-bottom: 1px solid #d9d9d9;
+        padding: 20px 0px 30px 0px;
     }
 
     .img-info-container {
@@ -251,4 +308,5 @@ img {
         overflow: visible;
         text-overflow: initial;
     }
+
 }
