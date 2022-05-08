@@ -20,13 +20,14 @@
     <main class="main-container">
         <div class="user-info-container">
             <div class="user-name">
-                <h2><%= firstname %></h2>
-                <h2><%= lastname %></h2>
+                <h2>Welcome, <%= firstname %></h2>
             </div>
             <div class="money-container">
-                <h3>Available Money</h3>
-                <h3>$ <%= money %></h3>
+                <h1>Digital<span>Bank</span></h1>
+                <h3 class="hide-money">Available Money</h3>
+                <h3 class="hide-money">$ <%= money %></h3>
             </div>
+            <a class="logoutBtn" href="logout">Logout</a>
             <a class="sendBtn" href="transfer">Send Money</a>
         </div>
 
@@ -34,18 +35,27 @@
 
     <section class="transactions-container">
         <div class="transactions">
-            <% results2.forEach((transaction) => { %>
+            <h3 class="transactions-header">Your last movements</h3>
+            <% results2.slice(-10).forEach((transaction) => { %>
                 <% if(transaction.senderid == userid) { %>
                     <div class="sent-transaction">
-                        <img src="../resources/images/sentmoneyicon.svg" alt="received money icon">
-                        <span>You transfered to <%= transaction.firstname %> <%= transaction.lastname %></span>
-                        <p>$<%= transaction.quantityamount %></p>
+                        <div class="img-info-container">
+                            <img src="../resources/images/sentmoneyicon.svg" alt="received money icon">
+                            <span class="transaction-text-span">You transfered to <span class="transaction-info-span"><%= transaction.receiver_firstname %> <%= transaction.receiver_lastname %></span></span>
+                        </div>
+                        <div class="quantityamount-container">
+                            <p>$<%= transaction.quantityamount %></p>
+                        </div>
                     </div>
                 <% } else { %>
                     <div class="received-transaction">
-                        <img src="../resources/images/receivedmoneyicon.svg" alt="sent money icon">
-                        <span><%= transaction.firstname %> <%= transaction.lastname %> transferred you</span>
-                        <p>$<%= transaction.quantityamount %></p>
+                        <div class="img-info-container">
+                            <img src="../resources/images/receivedmoneyicon.svg" alt="sent money icon">
+                            <span class="transaction-text-span"><span class="transaction-info-span"><%= transaction.sender_firstname %> <%= transaction.sender_lastname %></span> transferred you</span>
+                        </div>
+                        <div class="quantityamount-container">
+                            <p>$<%= transaction.quantityamount %></p>
+                        </div>
                     </div>
                 <% } %>
             <% }) %>

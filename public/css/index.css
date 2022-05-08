@@ -1,7 +1,8 @@
-/** ----------- Globals ----------- **/
+/** ----------- Globals Section ----------- **/
 
 html {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 *, *:before, *:after {
 box-sizing: inherit;
@@ -9,19 +10,20 @@ box-sizing: inherit;
 
 body {
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, p {
     margin: 0;
 }
 
-/** ----------- Images Globals ----------- **/
+/** ----------- Images Section ----------- **/
 
 img {
     height: 30px;
 }
 
-/** ----------- Header Container ----------- **/
+/** ----------- Header Section ----------- **/
 
 .header-container {
     display: flex;
@@ -51,14 +53,14 @@ img {
     font-size: 20px;
 }
 
-/** ----------- Main Container ----------- **/
+/** ----------- Main Section ----------- **/
 
 .main-container {
     background-color: #001433;
     height: 280px;
 }
 
-/** ----------- User Info Container ----------- **/
+/** ----------- User Info Section ----------- **/
 
 .user-info-container {
     color: white;
@@ -98,7 +100,15 @@ img {
     color: white;
 }
 
-/** ----------- Transactions Container ----------- **/
+.money-container h1 {
+    display: none;
+}
+
+.logoutBtn {
+    display: none;
+}
+
+/** ----------- Transactions Section ----------- **/
 
 .transactions-container {
     width: 300px;
@@ -111,17 +121,134 @@ img {
     gap: 20px;
 }
 
+.transactions-header {
+    text-align: center;
+}
+
+.img-info-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 240px;
+}
+
 .sent-transaction, .received-transaction {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 5px;
     max-width: 295px;
     height: 30px;
 }
 
-span {
-    min-width: 0;
+.transaction-text-span {
+    min-width: 0px;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.quantityamount-container p {
+    font-weight: bold;
+}
+
+
+/** ----------- Form Media Queries ----------- **/
+
+@media (min-width: 1024px) {
+
+    /** ---- Header Section ---- **/
+
+    .header-container {
+        display: none;
+    }
+
+    /** ---- Main Section ---- **/
+
+    .main-container {
+        height: 140px;
+    }
+
+    /** ---- User Info Section ---- **/
+
+    .user-info-container {
+        color: white;
+        position: static;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 140px;
+        font-size: 20px;
+    }
+
+    .user-info-container span {
+        font-weight: bold;
+    }
+
+    .money-container h1 {
+        font-weight: normal;
+        display: block;
+    }
+
+    .money-container > .hide-money {
+        display: none;
+    }
+    
+    .user-name {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .money-container {
+        gap: 10px;
+    }
+    
+    .sendBtn {
+        display: none;
+    }
+
+    .logoutBtn {
+        color: white;
+        text-decoration: none;
+        font-size: 30px;
+        width: 260px;
+        display: block;
+    }
+    
+    .sendBtn:hover {
+        cursor: pointer;
+        background-color: #002966;
+        color: white;
+    }
+    
+    /** ---- Transactions Section ---- **/
+
+    .transactions-container {
+        margin: 20px auto;
+        width: 500px;
+    }
+
+    .transactions {
+        width: 500px;
+    }
+
+    .sent-transaction, .received-transaction {
+        display: flex;
+        justify-content: space-between;
+        width: 500px;
+        max-width: 500px;
+    }
+
+    .img-info-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .transaction-text-span {
+        overflow: visible;
+        text-overflow: initial;
+    }
 }
