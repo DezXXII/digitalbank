@@ -12,6 +12,12 @@
     <title>Digital Bank</title>
 </head>
 <body>
+
+    <%  let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'ARS',
+    }); %>
+
     <header class="header-container">
         <h1>DigitalBank</h1>
         <a href="/login">Logout</a>
@@ -30,7 +36,6 @@
             <a class="logoutBtn" href="logout">Logout</a>
             <a class="sendBtnMobile" href="transfer">Transfer</a>
         </div>
-
     </main>
 
     <div class="mid-page-wrapper">
@@ -39,7 +44,7 @@
                 <h3>Available Money</h3>
             </div>
             <div>
-                <h3>$ <%= money %></h3>
+                <h3><%= formatter.format(money).replace("ARS", "$") %></h3>
             </div>
             <div>
                 <a class="sendBtnDesktop" href="transfer">Transfer</a>
@@ -49,6 +54,7 @@
 
             <div class="transactions">
                 <h3 class="transactions-header">Your last movements</h3>
+
                 <% results2.slice(-10).forEach((transaction) => { %>
                     <% if(transaction.senderid == userid) { %>
                         <div class="sent-transaction">
@@ -57,7 +63,8 @@
                                 <span class="transaction-text-span">You transfered to <span class="transaction-info-span"><%= transaction.receiver_firstname %> <%= transaction.receiver_lastname %></span></span>
                             </div>
                             <div class="quantityamount-container">
-                                <p>- $<%= transaction.quantityamount %></p>
+                                <p>- <%= formatter.format(transaction.quantityamount).replace("ARS", "$") %></p>
+                                <p class="date"><%= transaction.explicitdate.slice(0, -6) %></p>
                             </div>
                         </div>
                     <% } else { %>
@@ -67,13 +74,18 @@
                                 <span class="transaction-text-span"><span class="transaction-info-span"><%= transaction.sender_firstname %> <%= transaction.sender_lastname %></span> transferred you</span>
                             </div>
                             <div class="quantityamount-container">
-                                <p>$<%= transaction.quantityamount %></p>
+                                <p><%= formatter.format(transaction.quantityamount).replace("ARS", "$") %></p>
+                                <p class="date"><%= transaction.explicitdate.slice(0, -6) %></p>
                             </div>
                         </div>
                     <% } %>
                 <% }) %>
+                <div class="transactionsBtnDiv">
+                    <a href="/transactions" class="transactionsBtn">See all your activity</a>
+                </div>
             </div>
-
     </div>
+
+    <script src="../controllers/currencyController.js"></script>
 </body>
 </html>

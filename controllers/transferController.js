@@ -1,5 +1,7 @@
 // Invoking DB connection
 const connection = require('../database/db');
+// Invoking momentjs
+const momentjs = require('moment');
 
 exports.transfer = (req, res) => {
     if(req.session.loggedin) {
@@ -30,9 +32,18 @@ exports.gettingReceiver = (req, res) => {
 };
 
 exports.finishingTransaction = (req, res) => {
-    const money = parseInt(req.body.quantity)
+    const money = parseInt(req.body.quantity);
     const receiverid = req.body.receiverid
     
+    // Dates
+    const timestamp = momentjs().format('LLL');
+    const explicitdate = momentjs().format('LL');
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today.getFullYear();
+    date = yyyy + '/' + mm + '/' + dd;
+
     if(req.session.loggedin){
         connection.query(`SELECT moneyamount FROM info WHERE infoid = ${req.session.userid}`, (error, results) => {
             if(error) {
@@ -41,7 +52,7 @@ exports.finishingTransaction = (req, res) => {
                 const updatedSenderMoney = results[0].moneyamount - money
                 // Sender Update Query
                 connection.query(`UPDATE info SET moneyamount = ${updatedSenderMoney} WHERE infoid = ${req.session.userid}`)
-                connection.query('INSERT INTO transactions SET ?', {senderid:req.session.userid, receiverid:receiverid, quantityamount:money}, (error, results) => {
+                connection.query('INSERT INTO transactions SET ?', {senderid:req.session.userid, receiverid:receiverid, quantityamount:money, timestamp:timestamp, date:date, explicitdate:explicitdate}, (error, results) => {
                     if(error) {
                         console.log(error)
                     }

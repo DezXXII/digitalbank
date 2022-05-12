@@ -1,0 +1,122 @@
+/** ----------- Globals ----------- **/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/** ----------- Images Section ----------- **/
+
+img {
+    height: 30px;
+}
+
+/** ----------- Header ----------- **/
+
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #002966;
+    color: white;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: .3s ease-in-out;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+/** ----------- Transactions Section ----------- **/
+
+.transactions {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #FFF;
+    width: 1000px;
+    border: 1px solid #FFF;
+    border-radius: 7.5px;
+    margin: 20px auto 0px auto;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
+}
+
+.transactionsBtnDiv {
+    text-align: center;
+    margin: 15px 0px 15px 0px;
+}
+
+.transactionsBtn {
+    background-color: #002966;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.transactions-header {
+    text-align: center;
+}
+
+.sent-transaction, .received-transaction {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 5px 0px 30px 0px;
+    height: 100px;
+    align-items: center;
+}
+
+.img-info-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantityamount-container {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.quantityamount-container p {
+    font-weight: bold;
+    margin: 0;
+    text-align: right;
+}
+
+.date {
+    text-align: right;
+    color: grey;
+    font-size: 15px;
+}

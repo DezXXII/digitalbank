@@ -4,8 +4,10 @@
 const connection = require('./database/db');
 // Invoking Express
 const express = require('express');
-//Invoking Router
+// Invoking Router
 const router = express.Router();
+// Invoking momentjs
+const momentjs = require('moment')
 
 // -------------------------------------------------------------------------
 
@@ -25,10 +27,11 @@ router.get('/', (req, res) => {
             if(error) {
                 console.log(error);
             }
-            const transactionDataQuery = `SELECT transactions.transactionid,transactions.senderid,transactions.receiverid,transactions.quantityamount, info.firstname AS sender_firstname, info.lastname AS sender_lastname, userinfo.firstname AS receiver_firstname, userinfo.lastname AS receiver_lastname 
+            const transactionDataQuery = `SELECT transactions.transactionid, transactions.senderid, transactions.receiverid, transactions.quantityamount, transactions.explicitdate, info.firstname AS sender_firstname, info.lastname AS sender_lastname, userinfo.firstname AS receiver_firstname, userinfo.lastname AS receiver_lastname 
                                             FROM transactions 
                                             JOIN info ON transactions.senderid = info.infoid
-                                            JOIN info userinfo ON transactions.receiverid = userinfo.infoid WHERE senderid = ${req.session.userid} OR receiverid = ${req.session.userid}`
+                                            JOIN info userinfo ON transactions.receiverid = userinfo.infoid WHERE senderid = ${req.session.userid} OR receiverid = ${req.session.userid}
+                                            ORDER BY transactionid DESC`
             connection.query(transactionDataQuery, function (error, results2) {
                 if(error) {
                     console.log(error)

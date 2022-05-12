@@ -57,7 +57,7 @@ img {
 /** ----------- Main Section ----------- **/
 
 .main-container {
-    background-color: #001433;
+    background-color: #002966;
     height: 280px;
 }
 
@@ -84,7 +84,7 @@ img {
 }
 
 .sendBtnMobile {
-    color: #001433;
+    color: #002966;
     background-color: white;
     width: 150px;
     margin: 0 auto;
@@ -127,6 +127,21 @@ img {
     gap: 20px;
 }
 
+.transactionsBtnDiv {
+    text-align: center;
+    margin: 15px 0px 15px 0px;
+}
+
+.transactionsBtn {
+    background-color: #002966;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .transactions-header {
     text-align: center;
 }
@@ -154,10 +169,21 @@ img {
     text-overflow: ellipsis;
 }
 
+.quantityamount-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .quantityamount-container p {
     font-weight: bold;
 }
 
+.date {
+    text-align: right;
+    color: grey;
+    font-size: 13px;
+}
 
 /** ----------- Form Media Queries ----------- **/
 
@@ -179,7 +205,8 @@ img {
 
     .mid-page-wrapper {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 200px;
         margin: 0px 100px;
     }
 
@@ -190,11 +217,12 @@ img {
         border-radius: 7.5px;
         padding: 20px;
         width: 300px;
-        height: 200px;
+        height: 275px;
         text-align: center;
         display: flex;
         flex-direction: column;
         gap: 30px;
+        font-size: 30px;
         -webkit-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
         -moz-box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
         box-shadow: 0px 0px 22px -4px rgba(0,0,0,0.43);
@@ -204,7 +232,7 @@ img {
         text-align: center;
         display: block;
         color: white;
-        background-color: #001433;
+        background-color: #002966;
         width: 150px;
         margin: 0px auto;
         padding: 10px 10px;

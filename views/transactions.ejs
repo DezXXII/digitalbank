@@ -4,27 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/normalize.css">
+    <link rel="stylesheet" href="resources/css/transactions.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
     <title>Transactions</title>
 </head>
 <body>
 
-    <h1>Your Transactions</h1>
+    <%  let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'ARS',
+    }); %>
+
+    <header class="header-container">
+        <h1>DigitalBank</h1>
+        <a href="/login">Logout</a>
+    </header>
 
     <% if (login) { %>
-        <% results.forEach((transaction) => { %>
-            <% if(transaction.senderid == userid) { %>
-                <div>
-                    <p>Transferiste a <%= transaction.firstname %> <%= transaction.lastname %> por un valor de $ <%= transaction.quantityamount %></p>
-                </div>
-            <% } else { %>
-                <div>
-                    <p><%= transaction.firstname %> <%= transaction.lastname %> te transfirió $ <%= transaction.quantityamount %></p>
-                </div>
-            <% } %>
-
-        <% }) %>
+        <div class="transactions">
+            <% results2.slice(-10).forEach((transaction) => { %>
+                <% if(transaction.senderid == userid) { %>
+                    <div class="sent-transaction">
+                        <div class="img-info-container">
+                            <img src="../resources/images/sentmoneyicon.svg" alt="received money icon">
+                            <span class="transaction-text-span">You transfered to <span class="transaction-info-span"><%= transaction.receiver_firstname %> <%= transaction.receiver_lastname %></span></span>
+                        </div>
+                        <div class="quantityamount-container">
+                            <p>- <%= formatter.format(transaction.quantityamount).replace("ARS", "$") %></p>
+                            <p class="date"><%= transaction.timestamp %></p>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="received-transaction">
+                        <div class="img-info-container">
+                            <img src="../resources/images/receivedmoneyicon.svg" alt="sent money icon">
+                            <span class="transaction-text-span"><span class="transaction-info-span"><%= transaction.sender_firstname %> <%= transaction.sender_lastname %></span> transferred you</span>
+                        </div>
+                        <div class="quantityamount-container">
+                            <p><%= formatter.format(transaction.quantityamount).replace("ARS", "$") %></p>
+                            <p class="date"><%= transaction.timestamp %></p>
+                        </div>
+                    </div>
+                <% } %>
+            <% }) %>
+            <div class="transactionsBtnDiv">
+                <a href="/" class="transactionsBtn">Go back</a>
+            </div>
+        </div>
     <% } %>
 
+
+    <script src="../controllers/currencyController.js"></script>
 </body>
 </html>
