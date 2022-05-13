@@ -4,32 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="stylesheet" href="resources/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/transfer.css">
     <title>Transfer Money</title>
 </head>
 <body>
-    <h1>Transfer Money</h1>
+
+    <header class="header-container">
+        <h1>DigitalBank</h1>
+        <a href="/login">Logout</a>
+    </header>
+
 
     <% if (receiver) { %>
+        <div class="receiver-container">
+            <div>
+                <h2>Enter the amount you want to send</h2>
+            </div>
 
-        <form action="/transactioncomplete" method="POST">
-            <label for="quantity">Quantity: </label>
-            <input type="number" name="quantity" id="quantity">
-
-            <input type="hidden" name="receiverid" value="<%= receiverid %>">
-
-            <input type="submit" id="sendBtn" value="Send">
-        </form>
+            <div class="form-inputs">
+                <form action="/transactioncomplete" method="POST">
+                    <input type="number" step=".01" name="quantity" class="receiverInput" id="quantity" placeholder="Quantity" autofocus>
+                    <input type="hidden" name="receiverid" value="<%= receiverid %>">
+                    <input type="submit" class="sendBtn" id="sendBtn" value="Send">
+                </form>
+            </div>
+        </div>
 
     <% } else { %>
+        <div class="receiver-container">
+            <div>
+                <h2>Who do you want to transfer to?</h2>
+            </div>
 
-        <form action="/receiver" method="POST">
-            <label for="receiver">Receiver: </label>
-            <input type="text" name="receiver" id="receiver">
-
-            <input type="submit" id="sendBtn" value="Next">
-        </form>
-
+            <div class="form-inputs">
+                <form action="/receiver" method="POST">
+                    <p class="inputInfo">Enter the recipient's email</p>
+                    <input type="text" class="receiverInput" name="receiver" id="receiver" placeholder="Receiver" autofocus>
+                    <input type="submit" class="sendBtn" id="sendBtn" value="Next">
+                </form>
+            </div>
+        </div>
     <% } %>
 </body>
 </html>

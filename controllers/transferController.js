@@ -32,7 +32,7 @@ exports.gettingReceiver = (req, res) => {
 };
 
 exports.finishingTransaction = (req, res) => {
-    const money = parseInt(req.body.quantity);
+    const money = parseFloat(req.body.quantity);
     const receiverid = req.body.receiverid
     
     // Dates

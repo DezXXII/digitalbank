@@ -1,0 +1,95 @@
+/** ----------- Globals ----------- **/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/** ----------- Header ----------- **/
+
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #002966;
+    color: white;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: .3s ease-in-out;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+/** ----------- Transfer Section ----------- **/
+
+.receiver-container {
+    /* margin: 0 auto; */
+    /* width: 500px; */
+    text-align: center;
+}
+
+.receiver-container form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.forms-inputs {
+    text-align: center;
+}
+
+.inputInfo {
+    text-align: left;
+}
+
+.receiverInput {
+    padding: 20px 30px 20px 10px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 2px;
+}
+
+.receiverInput:focus {
+    outline: 2px solid orange;
+}
+
+.sendBtn {
+    width: 100px;
+    background-color: #002966;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin: 20px auto;
+    font-size: 30px;
+    padding: 10px 10px 10px 10px;
+}
+
+.sendBtn:hover {
+    cursor: pointer;
+}
