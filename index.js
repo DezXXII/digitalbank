@@ -2,6 +2,9 @@
 const express = require('express');
 const app = express();
 
+// Invoking Express Validator Functions
+const { check, validationResult } = require('express-validator');
+
 // Setting urlencoded to capture forms data
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

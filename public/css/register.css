@@ -95,6 +95,12 @@ form input:focus {
     cursor: pointer;
 }
 
+/** ----------- Registration Form Error Messages ----------- **/
+
+.error-message {
+    display: none;
+}
+
 /** ----------- Filler ----------- **/
 
 .filler {

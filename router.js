@@ -59,7 +59,8 @@ router.get('/register', (req, res) => {
     res.render('register');
 });
 
-router.post('/register', register.registerUser);
+const { validateRegister } = require('./validators/registerValidation')
+router.post('/register', validateRegister, register.registerUser);
 
 // -------------------------------------------------------------------------
 
