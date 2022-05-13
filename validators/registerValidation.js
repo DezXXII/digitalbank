@@ -36,12 +36,4 @@ const validateRegister = [
     }
 ]
 
-
-
-
-
-
-
-
-
 module.exports = { validateRegister }

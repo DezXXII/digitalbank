@@ -22,21 +22,21 @@
         <form action="register" method="POST">
             <div class="input-container">
                 <input id="firstname" type="text" name="firstname" placeholder="Firstname">
-                <p class="error-message">• Firstname must contain between 3 to 15 characters</p>
+                <p id="firstname-error-message" class="error-hidden">• Firstname must contain between 3 to 15 characters</p>
             </div>
             <div class="input-container">
                 <input id="lastname" type="text" name="lastname" placeholder="Lastname">
-                <p class="error-message">• Lastname must contain between 3 to 15 characters</p>
+                <p id="lastname-error-message" class="error-hidden">• Lastname must contain between 3 to 15 characters</p>
             </div>
             <div class="input-container">
                 <input id="email" type="email" name="email" placeholder="Email">
-                <p class="error-message">• Must be a valid email</p>
+                <p id="email-error-message" class="error-hidden">• Must be a valid email</p>
             </div>
             <div class="input-container">
                 <input id="password" type="password" name="password" placeholder="Password">
-                <p class="error-message">• Password must contain between 8 to 15 characters</p>
+                <p id="password-error-message" class="error-hidden">• Password must contain between 8 to 20 characters</p>
             </div>
-            <input class="submitBtn" type="submit" value="Create">
+            <input id="submitBtn" class="submitBtn" type="submit" value="Create">
         </form>
     </section>
 
@@ -44,5 +44,6 @@
         <a href="/">Need help?</a>
     </div>
 
+    <script src="../resources/scripts.js"></script>
 </body>
 </html>

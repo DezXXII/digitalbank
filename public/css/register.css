@@ -64,22 +64,24 @@ img {
 }
 
 form {
-    width: 100%;
+    margin: 0 auto;
+    width: 425px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 form input {
-    width: 85%;
+    width: 425px;
     padding: 20px 30px 20px 10px;
     border-radius: 10px;
     border: 1px solid #cccccc;
     font-weight: bold;
+    margin-bottom: 8px;
 }
 
 form input:focus {
-    outline: 2px solid orange;
+    outline: none;
 }
 
 .submitBtn {
@@ -97,8 +99,44 @@ form input:focus {
 
 /** ----------- Registration Form Error Messages ----------- **/
 
-.error-message {
-    display: none;
+.error-hidden {
+    margin: 0;
+    visibility: hidden;
+}
+
+.error-firstname, .error-lastname, .error-email, .error-password {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: red;
+    visibility: visible;
+}
+
+.error-email {
+    text-align: left;
+}
+
+.valid-input {
+    border: 1px solid green;
+}
+
+.not-valid-input {
+    border: 1px solid red;
+}
+
+.error-firstname {
+    /* display: none; */
+}
+
+.error-lastname {
+
+}
+
+.error-email {
+
+}
+
+.error-password {
+
 }
 
 /** ----------- Filler ----------- **/
@@ -117,7 +155,7 @@ form input:focus {
 
 /** ----------- Form Media Queries ----------- **/
 
-@media (min-width: 320px) {
+/* @media (min-width: 320px) {
     form {
         margin: 0 auto;
         width: 379px;
@@ -133,4 +171,4 @@ form input:focus {
     form {
         width: 500px;
     }
-}
+} */
