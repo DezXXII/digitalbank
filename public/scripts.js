@@ -60,23 +60,23 @@ inputPassword.addEventListener('change', (e) => {
 
 const submitBtn = document.getElementById('submitBtn');
 
-submitBtn.addEventListener('click', (e) => {
-    if(inputFirstname.value.length < 3 || inputFirstname.value.length > 15) {
-        firstnameErrorMessage.classList.add('error-firstname')
-    } 
-    if (inputLastname.value.length < 3 || inputLastname.value.length > 15) {
-        lastnameErrorMessage.classList.add('error-lastname');
-    }
-    if (!inputEmail.value.includes('@')) {
-        emailErrorMessage.classList.add('error-email')
-    } 
-    if(inputPassword.value.length < 8 || inputPassword.value.length > 20) {
-        passwordErrorMessage.classList.add('error-password');
-    }
+// submitBtn.addEventListener('click', (e) => {
+//     if(inputFirstname.value.length < 3 || inputFirstname.value.length > 15) {
+//         firstnameErrorMessage.classList.add('error-firstname')
+//     } 
+//     if (inputLastname.value.length < 3 || inputLastname.value.length > 15) {
+//         lastnameErrorMessage.classList.add('error-lastname');
+//     }
+//     if (!inputEmail.value.includes('@')) {
+//         emailErrorMessage.classList.add('error-email')
+//     } 
+//     if(inputPassword.value.length < 8 || inputPassword.value.length > 20) {
+//         passwordErrorMessage.classList.add('error-password');
+//     }
 
-    if(inputFirstname.value.length > 3 && inputFirstname.value.length < 15 && inputLastname.value.length > 3 && inputLastname.value.length < 15 && inputEmail.value.includes('@') && inputPassword.value.length > 8 && inputPassword.value.length < 20) {
-        console.log('funciona')
-    } else {
-        e.preventDefault()
-    }
-});
+//     if(inputFirstname.value.length > 3 && inputFirstname.value.length < 15 && inputLastname.value.length > 3 && inputLastname.value.length < 15 && inputEmail.value.includes('@') && inputPassword.value.length > 8 && inputPassword.value.length < 20) {
+//         console.log('funciona')
+//     } else {
+//         e.preventDefault()
+//     }
+// });

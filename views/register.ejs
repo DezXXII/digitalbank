@@ -22,19 +22,15 @@
         <form action="register" method="POST">
             <div class="input-container">
                 <input id="firstname" type="text" name="firstname" placeholder="Firstname">
-                <p id="firstname-error-message" class="error-hidden">• Firstname must contain between 3 to 15 characters</p>
             </div>
             <div class="input-container">
                 <input id="lastname" type="text" name="lastname" placeholder="Lastname">
-                <p id="lastname-error-message" class="error-hidden">• Lastname must contain between 3 to 15 characters</p>
             </div>
             <div class="input-container">
                 <input id="email" type="email" name="email" placeholder="Email">
-                <p id="email-error-message" class="error-hidden">• Must be a valid email</p>
             </div>
             <div class="input-container">
                 <input id="password" type="password" name="password" placeholder="Password">
-                <p id="password-error-message" class="error-hidden">• Password must contain between 8 to 20 characters</p>
             </div>
             <input id="submitBtn" class="submitBtn" type="submit" value="Create">
         </form>
@@ -43,7 +39,15 @@
     <div class="filler">
         <a href="/">Need help?</a>
     </div>
-
-    <script src="../resources/scripts.js"></script>
+    
+    <div class="errors-container">
+    <% if(typeof validations != 'undefined') { %>
+        <% validations.forEach( (validation) => { %>
+            <div class="error-message">
+              <p><%= validation.msg %></p>
+            </div>
+            <% }) %>
+    <% } %>
+    </div>
 </body>
 </html>

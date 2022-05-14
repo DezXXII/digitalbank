@@ -10,29 +10,33 @@ const { body, validationResult } = require('express-validator');
 
 // Validating Register Form
 const validateRegister = [
-    body('firstname')
+    body('firstname', 'Not a valid firstname')
     .exists()
     .isLength({min:3, max:15}),
-    body('lastname')
+    body('lastname', 'Not a valid lastname')
     .exists()
     .isLength({min:3, max:15}),
-    body('email')
+    body('email', 'Not a valid email')
     .exists()
-    .not()
     .isEmpty()
-    .isEmail()
+    .isEmail({require_tld: true})
     .normalizeEmail(),
-    body('password')
+    body('password', 'Not a valid password')
     .exists()
     .isLength({min:8, max:25}),
     (req, res, next) => {
         const errors = validationResult(req)
         if(!errors.isEmpty()) {
-            res.status(403)
-            res.send( { errors: errors.array() } )
-        } else {
-            return next()
-        }
+                console.log(req.body)
+                const values = req.body
+                const validations = errors.array()
+                res.render('register', {
+                    values:values,
+                    validations:validations
+                })
+            } else {
+                return next()
+            }
     }
 ]
 
