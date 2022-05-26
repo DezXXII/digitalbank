@@ -65,14 +65,14 @@ img {
 
 form {
     margin: 0 auto;
-    width: 425px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 form input {
-    width: 425px;
+    width: 100%;
     padding: 20px 30px 20px 10px;
     border-radius: 10px;
     border: 1px solid #cccccc;
@@ -99,12 +99,13 @@ form input:focus {
 
 /** ----------- Registration Form Error Messages ----------- **/
 
-/* .error-firstname, .error-lastname, .error-email, .error-password {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    color: red;
-    visibility: visible;
-} */
+.not-valid-input {
+    border: 1px solid red;
+}
+
+.valid-input {
+    border: 1px solid green;
+}
 
 .errors-container {
     width: 425px;
@@ -123,8 +124,12 @@ form input:focus {
     text-align: center;
     color: white;
     background-color: darkred;
-    width: 425px;
-    height: 40px;
+    width: 500px;
+    height: 50px;
+}
+
+.hidden {
+    display: none;
 }
 
 /** ----------- Filler ----------- **/

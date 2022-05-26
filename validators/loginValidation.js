@@ -3,30 +3,29 @@ const { body, validationResult } = require('express-validator');
 
 // -------------------------------------------------------------------------
 
+// Invoking DB connection
+const connection = require('../database/db');
+
+// -------------------------------------------------------------------------
+
 // Validating Register Form
-const validateRegister = [
-    body('firstname', 'Firstname must contain between 3 and 15 characters')
+
+const validateLogin = [
+    body('email', 'Incorrect email')
     .exists()
-    .isLength({min:3, max:15})
-    .isAlpha(),
-    body('lastname', 'Lastname must contain between 3 and 15 characters')
-    .exists()
-    .isLength({min:3, max:15})
-    .isAlpha(),
-    body('email', 'Not a valid email')
-    .exists()
-    .normalizeEmail()
+    .not()
+    .isEmpty()
     .isEmail({require_tld: true}),
-    body('password', 'Password must contain between 8 and 25 characters')
+    body('password', 'Incorrect password')
     .exists()
-    .isLength({min:8, max:25})
-    .isAlphanumeric(),
+    .not()
+    .isEmpty(),
     (req, res, next) => {
         const errors = validationResult(req)
         if(!errors.isEmpty()) {
                 const values = req.body
                 const validations = errors.array({onlyFirstError: true})
-                res.render('register', {
+                res.render('login', {
                     values:values,
                     validations:validations
                 })
@@ -36,4 +35,4 @@ const validateRegister = [
     }
 ]
 
-module.exports = { validateRegister }
+module.exports = { validateLogin }

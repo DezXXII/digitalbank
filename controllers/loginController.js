@@ -9,9 +9,11 @@ exports.authentification = async (req, res) => {
     const password = req.body.password;
     let passwordHash = await bcryptjs.hash(password, 8);
     if( email && password ) {
-        connection.query('SELECT * FROM users WHERE email = ?', [email], async (error ,results) => {
+        connection.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
             if(results.length == 0 || !(await bcryptjs.compare(password, results[0].password))) {
-                res.send('Incorrect email or password');
+                res.render('login', {
+                    invalidEmailOrPassword: true
+                });
             } else {
                 req.session.loggedin = true;
                 req.session.email = results[0].email;

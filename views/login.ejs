@@ -22,11 +22,34 @@
         <h2>Login</h2>
         <form action="/auth" method="POST">
             <div>
-                <input type="text" name="email" placeholder="Email" required>
+                <input type="text" name="email" placeholder="Email">
+                <% if(typeof validations != 'undefined') { %>
+                    <% validations.forEach((validation) => { %>
+                        <% if(validation.param == 'email') {%>
+                            <div class="error-message">
+                                <p><%= validation.msg %></p>
+                            </div>
+                        <% }%>
+                    <% })%>
+                <% } %>
             </div>
             <div>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password">
+                <% if(typeof validations != 'undefined') { %>
+                    <% validations.forEach((validation) => { %>
+                        <% if(validation.param == 'password') {%>
+                            <div class="error-message">
+                                <p><%= validation.msg %></p>
+                            </div>
+                        <% }%>
+                    <% })%>
+                <% } %>
             </div>
+            <% if(typeof invalidEmailOrPassword !== 'undefined') { %>
+                <div class="error-message">
+                    <p>Invalid Email or Password</p>
+                </div>
+            <% } %>
             <input class="submitBtn" type="submit" value="Log in">
         </form>
     </div>

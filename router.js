@@ -69,7 +69,8 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.post('/auth', login.authentification);
+const { validateLogin } = require('./validators/loginValidation')
+router.post('/auth', validateLogin, login.authentification);
 
 router.get('/logout', (req, res) => {
     req.session.destroy(() => {

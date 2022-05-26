@@ -22,15 +22,56 @@
         <form action="register" method="POST">
             <div class="input-container">
                 <input id="firstname" type="text" name="firstname" placeholder="Firstname">
+                <% if(typeof validations != 'undefined') { %>
+                    <% validations.forEach((validation) => { %>
+                        <% if(validation.param == 'firstname') {%>
+                            <div class="error-message">
+                                <p><%= validation.msg %></p>
+                            </div>
+                        <% }%>
+                    <% })%>
+                <% } %>
             </div>
             <div class="input-container">
                 <input id="lastname" type="text" name="lastname" placeholder="Lastname">
+                <% if(typeof validations != 'undefined') { %>
+                    <% validations.forEach((validation) => { %>
+                        <% if(validation.param == 'lastname') {%>
+                            <div class="error-message">
+                                <p><%= validation.msg %></p>
+                            </div>
+                        <% }%>
+                    <% })%>
+                <% } %>
             </div>
             <div class="input-container">
                 <input id="email" type="email" name="email" placeholder="Email">
+                <% if(typeof validations != 'undefined') { %>
+                    <% validations.forEach((validation) => { %>
+                        <% if(validation.param == 'email') {%>
+                            <div class="error-message">
+                                <p><%= validation.msg %></p>
+                            </div>
+                        <% }%>
+                    <% })%>
+                <% } %>
+                <% if(typeof alreadyUsedEmail !== 'undefined') { %>
+                    <div class="error-message">
+                        <p>Email already in use</p>
+                    </div>
+                <% } %>
             </div>
             <div class="input-container">
                 <input id="password" type="password" name="password" placeholder="Password">
+                <% if(typeof validations != 'undefined') { %>
+                    <% validations.forEach((validation) => { %>
+                        <% if(validation.param == 'password') {%>
+                            <div class="error-message">
+                                <p><%= validation.msg %></p>
+                            </div>
+                        <% }%>
+                    <% })%>
+                <% } %>
             </div>
             <input id="submitBtn" class="submitBtn" type="submit" value="Create">
         </form>
@@ -39,15 +80,7 @@
     <div class="filler">
         <a href="/">Need help?</a>
     </div>
-    
-    <div class="errors-container">
-    <% if(typeof validations != 'undefined') { %>
-        <% validations.forEach( (validation) => { %>
-            <div class="error-message">
-              <p><%= validation.msg %></p>
-            </div>
-            <% }) %>
-    <% } %>
-    </div>
+
+    <script src="../resources/scripts.js"></script>
 </body>
 </html>
