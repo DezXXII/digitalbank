@@ -8,7 +8,7 @@ const connection = require('../database/db');
 
 // -------------------------------------------------------------------------
 
-// Validating Register Form
+// Validating Login Form
 
 const validateLogin = [
     body('email', 'Incorrect email')

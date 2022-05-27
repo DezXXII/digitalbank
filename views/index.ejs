@@ -55,7 +55,7 @@
             <div class="transactions">
                 <h3 class="transactions-header">Your last movements</h3>
 
-                <% results2.slice(-10).forEach((transaction) => { %>
+                <% results2.slice(0, 10).forEach((transaction) => { %>
                     <% if(transaction.senderid == userid) { %>
                         <div class="sent-transaction">
                             <div class="img-info-container">

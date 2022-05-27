@@ -29,6 +29,15 @@
                 <form action="/transactioncomplete" method="POST">
                     <input type="number" step=".01" name="quantity" class="receiverInput" id="quantity" placeholder="Quantity" autofocus>
                     <input type="hidden" name="receiverid" value="<%= receiverid %>">
+                    <% if(typeof validations != 'undefined') { %>
+                        <% validations.forEach((validation) => { %>
+                            <% if(validation.param == 'quantity') {%>
+                                <div class="error-message">
+                                    <p><%= validation.msg %></p>
+                                </div>
+                            <% }%>
+                        <% })%>
+                    <% } %>
                     <input type="submit" class="sendBtn" id="sendBtn" value="Send">
                 </form>
             </div>
@@ -44,8 +53,23 @@
                 <form action="/receiver" method="POST">
                     <p class="inputInfo">Enter the recipient's email</p>
                     <input type="text" class="receiverInput" name="receiver" id="receiver" placeholder="Receiver" autofocus>
+                    <% if(typeof validations != 'undefined') { %>
+                        <% validations.forEach((validation) => { %>
+                            <% if(validation.param == 'receiver') {%>
+                                <div class="error-message">
+                                    <p><%= validation.msg %></p>
+                                </div>
+                            <% }%>
+                        <% })%>
+                    <% } %>
+                    <% if(typeof receiverDoesNotExist !== 'undefined') { %>
+                        <div class="error-message">
+                            <p>That user does not exist</p>
+                        </div>
+                    <% } %>
                     <input type="submit" class="sendBtn" id="sendBtn" value="Next">
                 </form>
+
             </div>
         </div>
     <% } %>

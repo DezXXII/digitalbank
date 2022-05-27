@@ -46,8 +46,6 @@ body {
 /** ----------- Transfer Section ----------- **/
 
 .receiver-container {
-    /* margin: 0 auto; */
-    /* width: 500px; */
     text-align: center;
 }
 
@@ -92,4 +90,41 @@ body {
 
 .sendBtn:hover {
     cursor: pointer;
+}
+
+/** ----------- Transfer Form Error Messages ----------- **/
+
+.not-valid-input {
+    border: 1px solid red;
+}
+
+.valid-input {
+    border: 1px solid green;
+}
+
+.errors-container {
+    width: 425px;
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-message {
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: darkred;
+    width: 600px;
+    height: 50px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
 }

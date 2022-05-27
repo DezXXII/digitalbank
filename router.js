@@ -70,7 +70,7 @@ router.get('/login', (req, res) => {
 });
 
 const { validateLogin } = require('./validators/loginValidation')
-router.post('/auth', validateLogin, login.authentification);
+router.post('/login', validateLogin, login.authentification);
 
 router.get('/logout', (req, res) => {
     req.session.destroy(() => {
@@ -83,9 +83,10 @@ router.get('/logout', (req, res) => {
 // Money Transfer Routes
 router.get('/transfer', transfer.transfer);
 
-router.post('/receiver', transfer.gettingReceiver);
+const { validateReceiver, validateQuantity } = require('./validators/transferValidation')
+router.post('/receiver', validateReceiver, transfer.gettingReceiver);
 
-router.post('/transactioncomplete', transfer.finishingTransaction);
+router.post('/transactioncomplete', validateQuantity, transfer.finishingTransaction);
 
 // Transactions Routes
 router.get('/transactions', transaction.showTransactions);

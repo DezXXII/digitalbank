@@ -19,7 +19,10 @@ exports.gettingReceiver = (req, res) => {
     if(receiver) {
         connection.query('SELECT userid FROM users WHERE email = ?', [receiver], (error, results) => {
             if(results.length == 0) {
-                res.send('No se encontró ese usuario')
+                res.render('transfer', {
+                    receiver: false,
+                    receiverDoesNotExist: true
+                })
             } else {
                 res.render('transfer', {
                     receiver: true,
