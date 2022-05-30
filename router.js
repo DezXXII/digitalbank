@@ -92,3 +92,29 @@ router.post('/transactioncomplete', validateQuantity, transfer.finishingTransact
 router.get('/transactions', transaction.showTransactions);
 
 module.exports = router;
+
+// -------------------------------------------------------------------------
+
+// User Credentials Edit Routes
+router.get('/profile', (req, res) => {
+    if(req.session.loggedin) {
+        connection.query(`SELECT firstname, lastname FROM info WHERE infoid = ${req.session.userid}`, function (error, results) {
+            if(error) {
+                console.log(error)
+            }
+            connection.query(`SELECT email FROM users WHERE userid = ${req.session.userid}`, function (error, results2) {
+                if(error) {
+                    res.send(error)
+                } else {
+                    res.render('userProfile', {
+                        firstname:results[0].firstname,
+                        lastname:results[0].lastname,
+                        email:results2[0].email
+                    })
+                }
+            })
+        })
+    } else {
+        res.redirect('login');
+    }
+});

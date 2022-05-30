@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/userProfile.css">
+    <title>My Profile</title>
+</head>
+<body>
+
+    <header class="header-container">
+        <h1>DigitalBank</h1>
+        <h1>My Profile</h1>
+        <a href="/login">Logout</a>
+    </header>
+
+    <div class="mid-page-wrapper">
+        <div class="personal-info">
+            <img src="../resources/images/profile/userprofileimage.svg" alt="user profile icon">
+            <div class="personal-info-subdiv">
+                <h2><%= firstname %> <%= lastname %></h2>
+                <h3>Basic user</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

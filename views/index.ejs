@@ -19,24 +19,13 @@
     }); %>
 
     <header class="header-container">
+        <h2>Welcome, <%= firstname %></h2>
         <h1>DigitalBank</h1>
-        <a href="/login">Logout</a>
-    </header>
-
-    <main class="main-container">
-        <div class="user-info-container">
-            <div class="user-name">
-                <h2>Welcome, <%= firstname %></h2>
-            </div>
-            <div class="money-container">
-                <h1>Digital<span>Bank</span></h1>
-                <h3 class="hide-money">Available Money</h3>
-                <h3 class="hide-money">$ <%= money %></h3>
-            </div>
-            <a class="logoutBtn" href="logout">Logout</a>
-            <a class="sendBtnMobile" href="transfer">Transfer</a>
+        <div class="links">
+            <a href="/profile">My Profile</a>
+            <a href="/login">Logout</a>
         </div>
-    </main>
+    </header>
 
     <div class="mid-page-wrapper">
         <div class="info-money-container">
@@ -47,7 +36,7 @@
                 <h3><%= formatter.format(money).replace("ARS", "$") %></h3>
             </div>
             <div>
-                <a class="sendBtnDesktop" href="transfer">Transfer</a>
+                <a class="sendBtn" href="transfer">Transfer</a>
             </div>
         </div>
 
@@ -60,7 +49,7 @@
                         <div class="sent-transaction">
                             <div class="img-info-container">
                                 <img src="../resources/images/sentmoneyicon.svg" alt="received money icon">
-                                <span class="transaction-text-span">You transfered to <span class="transaction-info-span"><%= transaction.receiver_firstname %> <%= transaction.receiver_lastname %></span></span>
+                                <span class="transaction-text-span">You transfered to <%= transaction.receiver_firstname %> <%= transaction.receiver_lastname %></span>
                             </div>
                             <div class="quantityamount-container">
                                 <p>- <%= formatter.format(transaction.quantityamount).replace("ARS", "$") %></p>
@@ -71,7 +60,7 @@
                         <div class="received-transaction">
                             <div class="img-info-container">
                                 <img src="../resources/images/receivedmoneyicon.svg" alt="sent money icon">
-                                <span class="transaction-text-span"><span class="transaction-info-span"><%= transaction.sender_firstname %> <%= transaction.sender_lastname %></span> transferred you</span>
+                                <span class="transaction-text-span"><%= transaction.sender_firstname %> <%= transaction.sender_lastname %> transferred you</span>
                             </div>
                             <div class="quantityamount-container">
                                 <p><%= formatter.format(transaction.quantityamount).replace("ARS", "$") %></p>
@@ -85,7 +74,5 @@
                 </div>
             </div>
     </div>
-
-    <script src="../controllers/currencyController.js"></script>
 </body>
 </html>

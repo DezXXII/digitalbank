@@ -1,0 +1,92 @@
+/** ----------- Globals ----------- **/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: rgba(0,0,0,.1);
+}
+
+/** ----------- Images Section ----------- **/
+
+img {
+    height: 30px;
+}
+
+/** ----------- Header ----------- **/
+
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #002966;
+    color: white;
+    height: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.header-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    transition: .3s ease-in-out;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+.header-container a:hover {
+    color: orange;
+}
+
+/** ----------- Main Section ----------- **/
+
+.mid-page-wrapper {
+    width: 40%;
+    margin: 0 auto;
+}
+
+/** Personal Info **/
+
+.personal-info {
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #FFF;
+    border-radius: 7.5px;
+    margin: 100px auto 0px auto;
+    padding: 20px;
+    -webkit-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+}
+
+.personal-info h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.personal-info h3 {
+    color: grey;
+}
+
+
+.personal-info-subdiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.personal-info img {
+    height: 70px;
+}
+
+/** Account Info **/

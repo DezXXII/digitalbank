@@ -5,11 +5,11 @@ const { body, validationResult } = require('express-validator');
 
 // Validating Register Form
 const validateRegister = [
-    body('firstname', 'Firstname must contain between 3 and 15 characters')
+    body('firstname', 'First name must contain between 3 and 15 characters')
     .exists()
     .isLength({min:3, max:15})
     .isAlpha(),
-    body('lastname', 'Lastname must contain between 3 and 15 characters')
+    body('lastname', 'Last name must contain between 3 and 15 characters')
     .exists()
     .isLength({min:3, max:15})
     .isAlpha(),

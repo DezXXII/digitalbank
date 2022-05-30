@@ -21,7 +21,7 @@
         <h2>Create your account</h2>
         <form action="register" method="POST">
             <div class="input-container">
-                <input id="firstname" type="text" name="firstname" placeholder="Firstname">
+                <input id="firstname" type="text" name="firstname" placeholder="First name">
                 <% if(typeof validations != 'undefined') { %>
                     <% validations.forEach((validation) => { %>
                         <% if(validation.param == 'firstname') {%>
@@ -33,7 +33,7 @@
                 <% } %>
             </div>
             <div class="input-container">
-                <input id="lastname" type="text" name="lastname" placeholder="Lastname">
+                <input id="lastname" type="text" name="lastname" placeholder="Last name">
                 <% if(typeof validations != 'undefined') { %>
                     <% validations.forEach((validation) => { %>
                         <% if(validation.param == 'lastname') {%>
