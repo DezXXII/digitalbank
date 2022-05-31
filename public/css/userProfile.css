@@ -89,4 +89,45 @@ img {
     height: 70px;
 }
 
-/** Account Info **/
+/** Credentials Info **/
+
+.credentials-info {
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid #FFF;
+    border-radius: 7.5px;
+    margin: 20px auto 0px auto;
+    padding: 20px;
+    -webkit-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.75);
+    align-items: center;
+}
+
+.credentials-info img {
+    height: 70px;
+}
+
+.credentials-info a {
+    background-color: #002966;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.pass {
+    margin: 0;
+    margin-top: 25px;
+}
+
+.info {
+    display: flex;
+    gap: 10px;
+
+}

@@ -95,7 +95,8 @@ module.exports = router;
 
 // -------------------------------------------------------------------------
 
-// User Credentials Edit Routes
+// Profile Routes
+
 router.get('/profile', (req, res) => {
     if(req.session.loggedin) {
         connection.query(`SELECT firstname, lastname FROM info WHERE infoid = ${req.session.userid}`, function (error, results) {
