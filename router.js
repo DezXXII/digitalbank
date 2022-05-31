@@ -16,6 +16,7 @@ const register = require('./controllers/registerController');
 const login = require('./controllers/loginController');
 const transfer = require('./controllers/transferController');
 const transaction = require('./controllers/transactionsController');
+const editCredentials = require('./controllers/editUserController');
 
 // -------------------------------------------------------------------------
 
@@ -119,3 +120,28 @@ router.get('/profile', (req, res) => {
         res.redirect('login');
     }
 });
+
+// Edit Credentials Routes
+
+// Email
+router.get('/editemail', (req, res) => {
+    if(req.session.loggedin) {
+        res.render('userEditEmail')
+    } else {
+        res.render('login')
+    }
+});
+
+// Password
+router.get('/editpassword', (req, res) => {
+    if(req.session.loggedin) {
+        res.render('userEditPassword')
+    } else {
+        res.render('login')
+    }
+});
+
+const { validateEmail, validatePassword } = require('./validators/userEditValidation')
+router.post('/editemailcomplete', validateEmail, editCredentials.changeEmail);
+router.post('/editpasswordcomplete', validatePassword, editCredentials.changePassword);
+

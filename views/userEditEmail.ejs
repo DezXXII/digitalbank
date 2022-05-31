@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/userEdit.css">
+    <title>My Profile</title>
+</head>
+<body>
+
+    <header class="header-container">
+        <h1>DigitalBank</h1>
+        <h1>My Profile</h1>
+        <a href="/login">Logout</a>
+    </header>
+    
+    <div class="mid-page-wrapper">
+        <form action="/editemailcomplete" method="POST">
+            <p class="edit-title">Enter your desired email</p>
+            <input id="email" name="email" class="emailInput" placeholder="New email" type="text">
+            <% if(typeof validations != 'undefined') { %>
+                <% validations.forEach((validation) => { %>
+                    <% if(validation.param == 'email') {%>
+                        <div class="error-message">
+                            <p><%= validation.msg %></p>
+                        </div>
+                    <% }%>
+                <% })%>
+            <% } %>
+            <% if(typeof alreadyUsedEmail !== 'undefined') { %>
+                <div class="error-message">
+                    <p>Email already in use</p>
+                </div>
+            <% } %>
+        </form>
+    </div>
+
+</body>
+</html>

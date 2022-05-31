@@ -36,16 +36,12 @@ img {
     text-decoration: none;
     font-size: 24px;
     transition: .3s ease-in-out;
+    width: 180px;
 }
 
 .header-container a:hover {
     color: orange;
 }
-
-.header-container a:hover {
-    color: orange;
-}
-
 /** ----------- Main Section ----------- **/
 
 .mid-page-wrapper {
